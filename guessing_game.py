@@ -11,6 +11,8 @@ def binary_search(data, elem):
             low = middle + 1
     return -1
 import random
+import time
+seconds_start = time.time()
 list_01 = list(set([random.randint(1, 10) for i in range(10)]))
 list_01.sort()
 index = random.randint(0, len(list_01) - 1)
@@ -25,3 +27,5 @@ while index != binary_search(list_01, number):
         print("Число меньше")
     number = int(input("Попробуй еще: "))
 print("Ты угадал")
+seconds = time.time()
+print(f'Ты потратил на это {int(round(seconds-seconds_start, 0))} секунд')

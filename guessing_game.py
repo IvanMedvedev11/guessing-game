@@ -32,7 +32,7 @@ while answer == "Да":
     print("Ты угадал")
     seconds = time.time()
     print(f'Ты потратил на это {int(round(seconds-seconds_start, 0))} секунд')
-    answer = input("Продолжить. Да/Нет: ")
+    answer = input("Продолжить? Да/Нет: ")
 toc = time.time()
 print(f"Алгоритм работал {int(round(toc-tic, 0))} секунд")
 

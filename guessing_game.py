@@ -12,20 +12,27 @@ def binary_search(data, elem):
     return -1
 import random
 import time
-seconds_start = time.time()
-list_01 = list(set([random.randint(1, 10) for i in range(10)]))
-list_01.sort()
-index = random.randint(0, len(list_01) - 1)
-print(list_01)
-number = int(input("Я загадал число, попробуй угадать: "))
-while index != binary_search(list_01, number):
-    if binary_search(list_01, number) == -1:
-        print("Ты слепой")
-    elif index > binary_search(list_01, number):
-        print("Число больше")
-    elif index < binary_search(list_01, number):
-        print("Число меньше")
-    number = int(input("Попробуй еще: "))
-print("Ты угадал")
-seconds = time.time()
-print(f'Ты потратил на это {int(round(seconds-seconds_start, 0))} секунд')
+tic = time.time()
+answer = "Да"
+while answer == "Да":
+    seconds_start = time.time()
+    list_01 = list(set([random.randint(1, 10) for i in range(10)]))
+    list_01.sort()
+    index = random.randint(0, len(list_01) - 1)
+    print(list_01)
+    number = int(input("Я загадал число, попробуй угадать: "))
+    while index != binary_search(list_01, number):
+        if binary_search(list_01, number) == -1:
+            print("Ты слепой")
+        elif index > binary_search(list_01, number):
+            print("Число больше")
+        elif index < binary_search(list_01, number):
+            print("Число меньше")
+        number = int(input("Попробуй еще: "))
+    print("Ты угадал")
+    seconds = time.time()
+    print(f'Ты потратил на это {int(round(seconds-seconds_start, 0))} секунд')
+    answer = input("Продолжить. Да/Нет: ")
+toc = time.time()
+print(f"Алгоритм работал {int(round(toc-tic, 0))} секунд")
+
